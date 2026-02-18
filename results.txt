@@ -1,0 +1,43 @@
+Received patient data from the RIVA app:
+{'country': 'syria ', 'age': '26', 'gender': 'Male', 'marital_status': 'Single', 'is_pregnant': False, 
+'smoking_exposure': ['Current smoker'], 
+'ex_smoker_duration': None,
+'main_symptoms': ['Chest pain / tightness', 'Nasal block', 'Heartburn'], 
+'symptoms_duration': '>1 month', 
+'cough_details': {'dry_cough': True, 'productive_cough': False, 'worse_at_night': False,
+                'worse_in_morning': True, 'continuous_all_day': False, 'hemoptysis': False,
+                 'choking_episodes': False, 'post_nasal_drip': False}, 
+'sputum_color': '', 
+'past_medical_history': [], 'surgery_details': None, 'family_history': [], 'cough_audio_path': None, 
+'breath_audio_path': None, 'additional_notes': ''}
+
+AI RESULT
+{
+  "final_diagnosis": "GERD",
+  "confidence": "Medium",
+  "supporting_evidence": [
+    "Symptoms of chest pain/tightness and heartburn are consistent with gastroesophageal reflux disease (GERD).",
+    "Duration of symptoms (>1 month) is also typical for GERD.",
+    "Smoking exposure may exacerbate GERD symptoms."
+  ]
+}
+Note: My confidence in this diagnosis is Medium because while the patient's symptoms and duration are consistent with GERD, there is no direct evidence of esophageal inflammation or erosions.
+
+////////////////////////////////////////////////////////////////
+{'country': 'syria ', 'age': '22', 'gender': 'Female', 'marital_status': 'Married', 'is_pregnant': True, 'smoking_exposure': ['Non-smoker'], 'ex_smoker_duration': None, 'main_symptoms': ['Cough', 'Shortness of breath', 'Chest pain / tightness', 'Wheezing', 'Chills'], 'symptoms_duration': '', 'cough_details': {'dry_cough': True, 'productive_cough': False, 'worse_at_night': True, 'worse_in_morning': False, 'continuous_all_day': False, 'hemoptysis': True, 'choking_episodes': False, 'post_nasal_drip': False}, 'sputum_color': 'Clear', 'past_medical_history': 
+['Asthma'], 'surgery_details': None, 'family_history': ['Allergic rhinitis'], 'cough_audio_path': None, 'breath_audio_path': None, 'additional_notes': 'noot test'}
+/////////////////////////////////////////////////////////////// 
+{'country': 'syria', 'age': '50', 'gender': 'Male', 'marital_status': 'Single', 'is_pregnant': False, 'smoking_exposure': ['Ex-smoker', 'Passive smoking exposure'], 'ex_smoker_duration': '3 year(s) 2 month(s)', 'main_symptoms': ['Cough', 'Fever', 'Runny nose'], 'symptoms_duration': '1–3 weeks', 'cough_details': {'dry_cough': False, 'productive_cough': True, 'worse_at_night': True, 'worse_in_morning': False, 'continuous_all_day': False, 'hemoptysis': True, 'choking_episodes': False, 'post_nasal_drip': False}, 'sputum_color': 'Yellow', 'past_medical_history': ['Previous surgery'], 'surgery_details': 'surgery 2018', 'family_history': ['Eczema / atopic dermatitis', 'Asthma / allergy'], 'cough_audio_path': None, 'breath_audio_path': None, 'additional_notes': 'noot test 2'}
+//////////////////////////////////////////////////////////////
+Migration باستخدام Alembic
+
+
+إضافة تسجيل دخول للأدمن
+
+📊 إحصائيات (عدد الحالات، أكثر تشخيص متكرر)
+
+🔎 فلترة متقدمة حسب العمر/الدولة/المرض
+
+🎧 تحليل صوت السعال لاحقًا
+
+☁️ نشر المشروع (Render / Railway / VPS)

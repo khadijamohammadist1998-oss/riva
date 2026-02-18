@@ -1,0 +1,46 @@
+
+{'country': 'syria',
+ 'age': '50', 
+ 'gender': 'Female', 
+ 'marital_status': 'Married',
+ 'is_pregnant': True,
+ 'smoking_exposure': ['Ex-smoker', 'Biomass / pollution exposure'], 
+ 'ex_smoker_duration': '1 year(s) 2 month(s)', 
+ 'main_symptoms': ['Cough', 'Wheezing', 'Chills'], 
+ 'symptoms_duration': '1–3 weeks', 
+ 'cough_details': 
+      {'dry_cough': True, 
+      'productive_cough': False,
+      'worse_at_night': False, 
+      'worse_in_morning': True, 
+      'continuous_all_day': False, 
+      'hemoptysis': False, 
+      'choking_episodes': True, 
+      'post_nasal_drip': False},
+ 'sputum_color': 'White', 
+ 'past_medical_history': ['Asthma', 'Allergy', 'Hypertension', 'Previous surgery'], 
+ 'surgery_details': 'surgery in 2020',
+ 'family_history': ['Allergic rhinitis', 'Eczema / atopic dermatitis'],
+ 'cough_audio_path': None, 
+ 'breath_audio_path': None,
+ 'additional_notes': 'nooot additional '}
+
+  {
+        "final_diagnosis": "ASAS",
+        "confidence": '0.8',
+        "supporting_evidence": ["111111111","2222222222222","3333333333333"]
+    }
+
+{'final_diagnosis': 'GERD', 
+ 'confidence': 0.8, 
+ 'supporting_evidence': 
+     [{'symptom': 'Heartburn', 
+      'relevance': 'High'}, {'risk_factor': 'Smoking exposure (Current smoker)', 'relevance': 'Medium'}]}
+
+ - Base your decision ONLY on the provided clinical data and symptoms
+- Do NOT assume imaging, lab tests, or spirometry unless explicitly stated
+- Do NOT over-diagnose chronic or structural lung diseases
+- Prefer common conditions over rare ones unless strong evidence exists
+- If nasal/upper airway symptoms dominate, prioritize upper airway causes
+- If lower airway symptoms dominate (wheezing, dyspnea), prioritize lower airway diseases
+- Think silently. Do NOT explain your internal reasoning
