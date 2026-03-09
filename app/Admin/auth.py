@@ -3,8 +3,8 @@ from sqladmin.authentication import AuthenticationBackend
 from fastapi import Request
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models.admin_user import AdminUser
+from ..database import SessionLocal
+from ..models.admin_user import AdminUser
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

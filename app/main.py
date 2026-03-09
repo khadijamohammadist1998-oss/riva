@@ -6,20 +6,20 @@ import json
 from pathlib import Path
 from pydantic import BaseModel
 from typing import List, Dict, Optional
-from models.patient_ import PatientForm
+from .models.patient_ import PatientForm
 from services.ai_service import analyze_patient
 from services.ai_service import analyze_patient3
 from sqladmin import Admin, ModelView
-from database import engine
-from models.clinical_case import ClinicalCase
+from .database import engine
+from .models.clinical_case import ClinicalCase
 #from models.models import DiagnosisRequest
 #from admin import DiagnosisRequestAdmin
 from database import get_db
 from sqlalchemy.orm import Session
 
-from db.session import engine
-from Admin.admin import (UserAdmin, ClinicalCaseAdmin)
-from Admin.auth import AdminAuth
+from .db.session import engine
+from .Admin.admin import (UserAdmin, ClinicalCaseAdmin)
+from .Admin.auth import AdminAuth
 
 
 print("🔥🔥🔥 THIS IS MY MAIN.PY 🔥🔥🔥")
@@ -69,14 +69,14 @@ def analyze(
     db: Session = Depends(get_db)
 ):
     # =========================
-    # 1️⃣ Parse patient JSON
+    # Parse patient JSON
     # =========================
     print("Received patient data from the RIVA app:")
     patient_dict = json.loads(patient_data)
     print(patient_dict)
     
     # =========================
-    # 2️⃣ Save audio files
+    # Save audio files
     # =========================
     cough_path = None
     breath_path = None
@@ -88,7 +88,7 @@ def analyze(
         with open(absolute_path, "wb") as buffer:
             shutil.copyfileobj(cough_audio.file, buffer)
 
-        # نحفظ في DB مسار نسبي فقط
+        # 
         cough_path = f"uploads/cough/{filename}"
 
     if breath_audio:
@@ -101,7 +101,7 @@ def analyze(
         breath_path = f"uploads/breath/{filename}"
     
     # =========================
-    # 3️⃣ AI Result (Mock)
+    #  AI Result (Mock)
     # =========================
     ai_result = {
         "final_diagnosis": "GERD",
@@ -114,9 +114,11 @@ def analyze(
     }
 
     # =========================
-    # 4️⃣ Save to DB
+    #  Save to DB
     # =========================
     clinical_case_record = ClinicalCase(
+        user_id = patient_dict.get("user_id"),
+        
         age=patient_dict.get("age"),
         gender=patient_dict.get("gender"),
         country=patient_dict.get("country"),
@@ -155,14 +157,14 @@ def analyze(
     db.refresh(clinical_case_record)
 
     # =========================
-    # 5️⃣ Response
+    #  Response
     # =========================
     return ai_result
 
 ## login endpoint
 ## POST /auth/register 
 ## POST /auth/login
-from routers import auth
+from .routers import auth
 
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 
@@ -213,6 +215,7 @@ def analyze(patient: PatientForm, db: Session = Depends(get_db)):
 ## play on fastapi: 
 ## uvicorn main:app --reload   ##  for laptob 
 ## uvicorn main:app --host 0.0.0.0 --port 8000 --reload   ## for real mobile 
+## uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 
 ## open 

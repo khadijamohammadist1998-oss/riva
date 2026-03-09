@@ -1,6 +1,6 @@
 # models/admin_user.py
 from sqlalchemy import Column, Integer, String, Boolean
-from db.base import Base
+from ..db.base import Base
 
 class AdminUser(Base):
     __tablename__ = "admin_users"

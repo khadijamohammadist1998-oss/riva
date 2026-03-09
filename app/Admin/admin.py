@@ -4,8 +4,8 @@
 from sqladmin import ModelView
 from markupsafe import Markup
 import json
-from models.user import User
-from models.clinical_case import ClinicalCase
+from ..models.user import User
+from ..models.clinical_case import ClinicalCase
 from markupsafe import Markup
     
 class UserAdmin(ModelView, model=User):
@@ -28,7 +28,6 @@ class ClinicalCaseAdmin(ModelView, model=ClinicalCase):
     # Audio Player Renderer
     @staticmethod
     def audio_player(model, prop):
-        # prop هنا هو اسم العمود كنص
         path = getattr(model, prop, None)
 
         if not path:
@@ -47,7 +46,7 @@ class ClinicalCaseAdmin(ModelView, model=ClinicalCase):
         ClinicalCase.cough_audio_path: audio_player,
         ClinicalCase.breath_audio_path: audio_player,
     }
-    # ما يظهر في القائمة
+    # 
     column_list = [
         ClinicalCase.id,
         ClinicalCase.age,
@@ -58,7 +57,7 @@ class ClinicalCaseAdmin(ModelView, model=ClinicalCase):
         ClinicalCase.created_at,
     ]
 
-    # عند فتح التفاصيل → تظهر كل الحقول
+    # 
     column_details_list = [
         ClinicalCase.id,
         ClinicalCase.user,
@@ -102,7 +101,7 @@ class ClinicalCaseAdmin(ModelView, model=ClinicalCase):
         ClinicalCase.confidence
     ]
     
-    # الحقول القابلة للتعديل
+    #
     form_columns = [
         "age",
         "gender",

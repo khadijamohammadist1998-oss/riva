@@ -1,11 +1,11 @@
-from db.session import engine
-from db.base import Base
+from ..db.session import engine
+from ..db.base import Base
 
 # import all models
-from models.user import User
+from ..models.user import User
 #from models.patient import Patient
-from models.clinical_case import ClinicalCase
-from models.admin_user import AdminUser
+from ..models.clinical_case import ClinicalCase
+from ..models.admin_user import AdminUser
 #from models.cough_details import CoughDetails
 #from models.ai_result import AIResult
 

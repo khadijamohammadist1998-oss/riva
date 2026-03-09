@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime, ARRA
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from db.base import Base
+from ..db.base import Base
 
 class ClinicalCase(Base):
     __tablename__ = "clinical_cases"

@@ -1,8 +1,8 @@
 # create_admin.py
 from passlib.context import CryptContext
-from database import SessionLocal
+from ..database import SessionLocal
 #from db.session import SessionLocal
-from models.admin_user import AdminUser
+from ..models.admin_user import AdminUser
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

@@ -36,7 +36,8 @@ DIAGNOSIS_LIST = [
     "OSA",
     "Empyema",
     "GERD",
-    "Psycho/anxiety"
+    "Psycho/anxiety",
+    "Healthy"
 ]
 
 # =========================
@@ -94,7 +95,7 @@ def analyze_patient(patient_data: Dict[str, Any]) -> Dict[str, Any]:
 
     prompt = build_prompt(patient_data)
 
-    print("📨 Sending prompt to AI model...\n")
+    print("Sending prompt to AI model...\n")
     print(prompt)
     print("\n==============================\n")
 
@@ -109,7 +110,7 @@ def analyze_patient(patient_data: Dict[str, Any]) -> Dict[str, Any]:
         timeout=120
     )
 
-    # ✅ 
+    # 
     if response.status_code != 200:
         print("❌ AI request failed")
         print(response.text)
@@ -118,11 +119,11 @@ def analyze_patient(patient_data: Dict[str, Any]) -> Dict[str, Any]:
     data = response.json()
 
     # 
-    print("🧠 RAW AI RESPONSE:")
+    print("RAW AI RESPONSE:")
     print(json.dumps(data, indent=2))
     print("\n==============================\n")
 
-    # ✅ Ollama   
+    #  Ollama   
     if "response" not in data:
         raise KeyError("Missing 'response' field in AI output")
 
@@ -135,7 +136,7 @@ def analyze_patient(patient_data: Dict[str, Any]) -> Dict[str, Any]:
     #   JSON 
     output = extract_json(raw_text)
 
-    print("✅ FINAL PARSED OUTPUT:")
+    print("FINAL PARSED OUTPUT:")
     print(json.dumps(output, indent=2))
     print("\n==============================\n")
 
